@@ -1,0 +1,25 @@
+#mood-swing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  
+  
+}
+
+#quote-container {
+  align-self: center;
+  justify-content: center;
+  
+}
+
+#app-container { 
+  color: #125;
+  
+}
+
+
+body{
+  color: indianred;
+  
+}
