@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     energetic: { color: '#00BFFF', text: '#fff' }
   };
 
-  // Function to set the mood styles
   function setMoodStyle(mood) {
     const styles = moodStyles[mood.toLowerCase()];
     if (styles) {
@@ -19,18 +18,29 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   async function getQuote(mood) {
-    const apiUrl = `https://api.quotable.io/quotes/random?tags=${mood.toLowerCase()}`;
+    let category = '';
+
+    // Map your button moods to Quote Garden API categories
+    if (mood.toLowerCase() === 'happy') {
+      category = 'life';
+    } else if (mood.toLowerCase() === 'sad') {
+      category = 'sadness';
+    } else if (mood.toLowerCase() === 'energetic') {
+      category = 'motivation';
+    }
+
+    const apiUrl = `https://api.photogallery.com/images?tag_slug=`;
     
     try {
       const response = await fetch(apiUrl);
       const data = await response.json();
       
-      if (data && data.length > 0) {
-        const quoteData = data[0];
-        quoteText.textContent = quoteData.content;
-        quoteAuthor.textContent = '- ' + quoteData.author;
+      if (data && data.data.length > 0) {
+        const quoteData = data.data[0];
+        quoteText.textContent = quoteData.quoteText;
+        quoteAuthor.textContent = '- ' + quoteData.quoteAuthor;
       } else {
-        quoteText.textContent = `No quotes were found for the mood ${mood}`;
+        quoteText.textContent = `No quotes were found for the mood ${mood}.`;
         quoteAuthor.textContent = '';
       }
     } catch (error) {
@@ -40,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  
+  // Initial quote and style on page load
   getQuote('happy');
   setMoodStyle('happy');
 
@@ -52,4 +62,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
-
