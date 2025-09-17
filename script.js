@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const moodSwing = document.getElementById('mood-swing');
 
   const moodStyles = {
-    happy: { color: '#FFD700', text: '#333' },
-    sad: { color: '#E91E63', text: '#fff' },
-    energetic: { color: '#00BFFF', text: '#fff' }
+    naruto: { color: '#FFD700', text: '#333' },
+    sasuke: { color: '#E91E63', text: '#fff' },
+    uchiha: { color: '#00BFFF', text: '#fff' }
   };
 
   function setMoodStyle(mood) {
@@ -18,18 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   async function getQuote(mood) {
-    let category = '';
+    
 
     // Map your button moods to Quote Garden API categories
-    if (mood.toLowerCase() === 'happy') {
-      category = 'life';
-    } else if (mood.toLowerCase() === 'sad') {
-      category = 'sadness';
-    } else if (mood.toLowerCase() === 'energetic') {
-      category = 'motivation';
-    }
     
-    const apiUrl = `https://quote-garden.herokuapp.com/api/v3/quotes?genre=${category}&limit=1`;
+    
+    const apiUrl = `const apiUrl = 'https://animechan.xyz/api/quotes/anime?title=${mood.toLowerCase()} ';`;
 
 
     
@@ -53,8 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Initial quote and style on page load
-  getQuote('happy');
-  setMoodStyle('happy');
+  getQuote('naruto');
+  setMoodStyle('naruto');
 
   moodSwing.addEventListener('click', (event) => {
     if (event.target.tagName === 'BUTTON') {
