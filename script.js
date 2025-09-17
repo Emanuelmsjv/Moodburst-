@@ -28,14 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (mood.toLowerCase() === 'energetic') {
       category = 'motivation';
     }
+    
+    const apiUrl = `https://quote-garden.herokuapp.com/api/v3/quotes?genre=${category}&limit=1`;
 
-    const apiUrl = `https://api.photogallery.com/images?tag_slug= ${mood.toLowerCase()}`;
+
     
     try {
       const response = await fetch(apiUrl);
       const data = await response.json();
       
-      if (data && data.data.length > 0) {
+       if (data && data.data && data.data.length > 0) {
         const quoteData = data.data[0];
         quoteText.textContent = quoteData.quoteText;
         quoteAuthor.textContent = '- ' + quoteData.quoteAuthor;
