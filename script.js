@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Initial quote and style on page load
+  
   getQuote('happy');
   setMoodStyle('happy');
 
@@ -52,3 +52,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+

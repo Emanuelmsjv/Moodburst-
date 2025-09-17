@@ -3,23 +3,20 @@
   align-items: center;
   justify-content: center;
   
-  
-  
 }
 
 #quote-container {
   align-self: center;
   justify-content: center;
-  
 }
 
 #app-container { 
-  color: #125;
-  
+  /* This rule is now redundant as body color is set by JS */
+  /* color: #125; */ 
 }
 
-
 body{
-  color: indianred;
+  /* Remove or comment out this line to allow JavaScript to control text color */
+  /* color: indianred; */
   
 }
