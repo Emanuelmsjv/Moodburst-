@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
       category = 'motivation';
     }
 
-    const apiUrl = `https://api.photogallery.com/images?tag_slug=`;
+    const apiUrl = `https://api.photogallery.com/images?tag_slug= ${mood.toLowerCase()}`;
     
     try {
       const response = await fetch(apiUrl);
